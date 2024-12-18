@@ -1,3 +1,4 @@
+import { BmiResponse } from './models/bmi'
 import { convertDecimalPoint, isNotNumber } from './utils'
 
 const calculateBmi = (h: number, w: number) => {
@@ -21,6 +22,23 @@ const calculateBmi = (h: number, w: number) => {
   }
 }
 
+export const calculateBmiJson = (
+  height: number,
+  weight: number
+): BmiResponse => {
+  const bmi = calculateBmi(height, weight)
+  return { weight, height, bmi }
+}
+
+export const getQueryParams = (q: any) => {
+  const height = Number(q.height),
+    weight = Number(q.weight)
+
+  if (isNaN(height) || isNaN(weight)) throw new Error('Malformatted parameters')
+
+  return { height, weight }
+}
+
 const getArgs = (): { h: number; w: number } => {
   const args = process.argv
 
@@ -37,20 +55,22 @@ const getArgs = (): { h: number; w: number } => {
   }
 }
 
-try {
-  const { h, w } = getArgs()
-  const res = calculateBmi(h, w)
-  console.log(
-    `Height: ${convertDecimalPoint(h)} cm\n
-    Weight: ${convertDecimalPoint(w)} kg\n
-    BMI: ${res}`
-  )
-} catch (e: unknown) {
-  let message = 'Calculation failed!'
-  if (e instanceof Error) {
-    message += '\nError: ' + e.message
+if (require.main === module) {
+  try {
+    const { h, w } = getArgs()
+    const res = calculateBmi(h, w)
+    console.log(
+      `Height: ${convertDecimalPoint(h)} cm\nWeight: ${convertDecimalPoint(
+        w
+      )} kg\nBMI: ${res}`
+    )
+  } catch (e: unknown) {
+    let message = 'Calculation failed!'
+    if (e instanceof Error) {
+      message += '\nError: ' + e.message
+    }
+    message += '\nUsage: npm run calculateBmi <height in cm> <weight in kg>'
+    message += '\nExample command: npm run calculateBmi 175 82.6'
+    console.log(message)
   }
-  message += '\nUsage: npm run calculateBmi <height in cm> <weight in kg>'
-  message += '\nExample command: npm run calculateBmi 175 82.6'
-  console.log(message)
 }
