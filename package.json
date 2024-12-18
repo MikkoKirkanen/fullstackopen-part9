@@ -1,0 +1,36 @@
+{
+  "name": "fullstackopen-part9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "ts-node": "ts-node",
+    "calculateBmi": "ts-node bmiCalculator.ts",
+    "calculateExercises": "ts-node exerciseCalculator.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikkoKirkanen/fullstackopen-part9.git"
+  },
+  "author": "Mikko Kirkanen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MikkoKirkanen/fullstackopen-part9/issues"
+  },
+  "homepage": "https://github.com/MikkoKirkanen/fullstackopen-part9#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/lodash": "^4.17.13",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
