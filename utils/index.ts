@@ -1,4 +1,4 @@
-export const isNotNumber = (value: any): boolean => isNaN(Number(value))
+export const isNotNumber = (value: string): boolean => isNaN(Number(value));
 
 export const convertDecimalPoint = (v: number): string =>
-  v.toString().replace('.', ',')
+  v.toString().replace('.', ',');
