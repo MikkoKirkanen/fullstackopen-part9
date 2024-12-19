@@ -51,8 +51,6 @@ export const calculateExercisesJson = (
   target: number,
   exercises: number[]
 ): ExerciseResult => {
-  
-
   const result = calculateExercises(target, exercises);
   return result;
 };
