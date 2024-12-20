@@ -11,15 +11,15 @@ const getPatients = (): Patient[] => {
     dateOfBirth,
     gender,
     occupation,
-  }));
+  })) as Patient[];
 };
 
 const getSensitivePatients = (): SensitivePatient[] => {
   return patients;
 };
 
-const addPatient = (patient: NewPatient) => {
-  const newPatient = {
+const addPatient = (patient: NewPatient): Patient => {
+  const newPatient: Patient = {
     id: uuidv4(),
     ...patient,
   };
