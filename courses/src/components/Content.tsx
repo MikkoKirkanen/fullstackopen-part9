@@ -1,12 +1,9 @@
 import { useState } from 'react';
+import { CoursePart } from '../types/CoursePart';
+import Part from './Part';
 
 interface ContentProps {
   courses: CoursePart[];
-}
-
-interface CoursePart {
-  name: string;
-  exerciseCount: number;
 }
 
 const Content = (props: ContentProps) => {
@@ -14,10 +11,8 @@ const Content = (props: ContentProps) => {
 
   return (
     <div>
-      {courses.map((c) => (
-        <p key={c.name}>
-          {c.name} {c.exerciseCount}
-        </p>
+      {courses.map((cp) => (
+        <Part key={cp.name} coursePart={cp} />
       ))}
     </div>
   );
