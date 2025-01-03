@@ -17,8 +17,7 @@ export default tseslint.config({
   plugins: {
     '@stylistic': stylistic,
   },
-  // client/vite.config.ts and client/src/vite-env.d.ts or client/**
-  ignores: ['build/*', 'client/vite.config.ts', 'client/src/vite-env.d.ts'],
+  ignores: ['build/*', 'client/**'],
   rules: {
     '@stylistic/semi': 'error',
     '@typescript-eslint/no-unsafe-assignment': 'error',

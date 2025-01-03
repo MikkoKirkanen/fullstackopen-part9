@@ -1,0 +1,11 @@
+@use 'bootstrap/dist/css/bootstrap.min.css';
+
+.diary-entries {
+  td {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .comment-row td {
+    padding-bottom: 1rem;
+  }
+}
