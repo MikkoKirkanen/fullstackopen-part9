@@ -11,6 +11,11 @@ router.get('/', (_req, res) => {
   res.send(patients);
 });
 
+router.get('/:id', (req: Request<{ id: string }>, res: Response) => {
+  const patient = patientsService.getPatient(req.params.id);
+  res.send(patient);
+});
+
 const newPatientParser = (req: Request, _res: Response, next: NextFunction) => {
   try {
     NewPatientSchema.parse(req.body);
