@@ -10,12 +10,9 @@ import {
   TableBody,
 } from '@mui/material';
 import axios from 'axios';
-
 import { PatientFormValues, Patient } from '../../types';
 import AddPatientModal from '../AddPatientModal';
-
 import HealthRatingBar from '../HealthRatingBar';
-
 import patientService from '../../services/patients';
 import { useNavigate } from 'react-router-dom';
 
